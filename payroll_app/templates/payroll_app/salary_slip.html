@@ -1,0 +1,27 @@
+{% extends 'payroll_app/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Salary Slips - October 2025</h2>
+<a href="/salary/export/pdf/" class="btn btn-danger">Export PDF</a>
+<a href="/salary/export/excel/" class="btn btn-success ms-2">Export Excel</a>
+<table class="table table-hover mt-3">
+    <thead>
+        <tr>
+            <th>Employee</th>
+            <th>Month</th>
+            <th>Days Present</th>
+            <th>Total Salary (₹)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for slip in slips %}
+        <tr>
+            <td>{{ slip.employee.name }}</td>
+            <td>{{ slip.month }}</td>
+            <td>{{ slip.total_present_days }}</td>
+            <td>{{ slip.total_salary }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

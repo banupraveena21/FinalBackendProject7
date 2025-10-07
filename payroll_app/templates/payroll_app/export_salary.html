@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+        th { background-color: #eee; }
+    </style>
+</head>
+<body>
+    <h2>Salary Slip - October 2025</h2>
+    <table>
+        <tr>
+            <th>Employee</th>
+            <th>Month</th>
+            <th>Days Present</th>
+            <th>Total Salary (₹)</th>
+        </tr>
+        {% for slip in slips %}
+        <tr>
+            <td>{{ slip.employee.name }}</td>
+            <td>{{ slip.month }}</td>
+            <td>{{ slip.total_present_days }}</td>
+            <td>{{ slip.total_salary }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

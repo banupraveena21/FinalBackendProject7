@@ -1,0 +1,30 @@
+{% extends 'payroll_app/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Mark Attendance</h2>
+<form method="post" class="row g-3 mb-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save Attendance</button>
+</form>
+
+<h3>Attendance Records</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Employee</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rec in records %}
+        <tr>
+            <td>{{ rec.employee.name }}</td>
+            <td>{{ rec.date }}</td>
+            <td>{{ rec.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

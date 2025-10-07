@@ -1,0 +1,16 @@
+body {
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2, h3 {
+  color: #333;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.table th {
+  background-color: #dee2e6;
+}
